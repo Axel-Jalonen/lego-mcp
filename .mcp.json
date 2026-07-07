@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "lego": {
+      "command": ".venv/bin/python",
+      "args": ["-m", "lego_mcp.server"]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+[project]
+name = "lego-mcp"
+version = "0.1.0"
+description = "MCP server that only lets a model build physically valid Lego"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Axel Jalonen", email = "axeljalonen@gmail.com" }]
+keywords = ["mcp", "lego", "llm", "tools", "constraints", "blender", "ldraw"]
+dependencies = ["mcp[cli]>=1.2"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering",
+]
+
+[project.scripts]
+lego-mcp = "lego_mcp.server:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["lego_mcp"]
