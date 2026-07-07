@@ -79,17 +79,20 @@ distribution — the only thing a host needs is a command that launches it.
 environment, so there's nothing to maintain:
 
 ```bash
-uvx --from lego-mcp lego-mcp          # once published to PyPI
-uvx --from ./dist/lego_mcp-0.1.0-py3-none-any.whl lego-mcp   # from a built wheel
-uvx --from "git+https://github.com/you/lego-mcp" lego-mcp    # from a repo
+uvx --from "git+https://github.com/Axel-Jalonen/lego-mcp" lego-mcp   # straight from this repo
+uvx --from ./dist/lego_mcp-0.1.0-py3-none-any.whl lego-mcp           # from a built wheel
 ```
 
 ### Or install it as a tool
 
 ```bash
-pipx install lego-mcp        # or: pip install lego-mcp
+pipx install "git+https://github.com/Axel-Jalonen/lego-mcp"   # or: pip install ...
 lego-mcp                     # the `lego-mcp` command is now on PATH
 ```
+
+Or grab the prebuilt wheel from the [latest
+release](https://github.com/Axel-Jalonen/lego-mcp/releases/latest) and
+`pipx install lego_mcp-0.1.0-py3-none-any.whl`.
 
 ### Build the distributable yourself
 
@@ -110,7 +113,7 @@ doesn't need Python set up:
   "mcpServers": {
     "lego": {
       "command": "uvx",
-      "args": ["--from", "lego-mcp", "lego-mcp"],
+      "args": ["--from", "git+https://github.com/Axel-Jalonen/lego-mcp", "lego-mcp"],
       "env": { "LEGO_MCP_HOME": "~/lego-builds" }
     }
   }
@@ -118,14 +121,14 @@ doesn't need Python set up:
 ```
 
 - **Claude Desktop** → `claude_desktop_config.json` (Settings → Developer).
-- **Claude Code** → `claude mcp add lego -- uvx --from lego-mcp lego-mcp`
+- **Claude Code** → `claude mcp add lego -- uvx --from git+https://github.com/Axel-Jalonen/lego-mcp lego-mcp`
   (this repo also ships a dev [.mcp.json](.mcp.json)).
 - **Cursor / Windsurf / VS Code MCP** → the same `mcpServers` block.
 - **Ollama** → Ollama's own runtime doesn't load MCP servers directly; run it
   through an MCP host that talks to Ollama, e.g.
   [`mcphost`](https://github.com/mark3labs/mcphost) or Open WebUI. `mcphost`
-  reads the identical config above, so pointing it at `uvx --from lego-mcp
-  lego-mcp` gives your local model the eight Lego tools.
+  reads the identical config above, so pointing it at the same `uvx` command
+  gives your local model the eight Lego tools.
 
 ## Development
 

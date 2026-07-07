@@ -15,6 +15,10 @@ classifiers = [
     "Topic :: Scientific/Engineering",
 ]
 
+[project.urls]
+Homepage = "https://github.com/Axel-Jalonen/lego-mcp"
+Repository = "https://github.com/Axel-Jalonen/lego-mcp"
+
 [project.scripts]
 lego-mcp = "lego_mcp.server:main"
 
